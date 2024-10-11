@@ -1,0 +1,46 @@
+import { useState } from "react";
+import { nanoid } from 'nanoid';
+
+function TaskForm({ addTask }) {
+  const [taskName, setTaskName] = useState(''); // State for the task input
+  const [editing, setEditing] = useState(false); // Manage editing state
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (taskName.trim()) {
+      addTask({ id: nanoid(), name: taskName }); // Add new task using addTask prop
+      setTaskName(''); // Clear the input field
+      setEditing(false); // Close the form after saving
+    }
+  };
+
+  return (
+    <>
+      {/* Display the form if editing is true */}
+      {editing ? (
+        <form onSubmit={handleSubmit}>
+          <div className="formContainer">
+            <input
+              id="task-name"
+              name="task-name"
+              type="text"
+              value={taskName} // Bind input value to state
+              onChange={(e) => setTaskName(e.target.value)} // Update state on change
+              placeholder="Enter a new task"
+            />
+          </div>
+          <div className="btn-group">
+            <button type="submit" className="btn-save">Save</button>
+          </div>
+        </form>
+      ) : (
+        <div className="btn-save" onClick={() => setEditing(true)}>
+          Add Task
+        </div>
+      )}
+    </>
+  );
+}
+
+export default TaskForm;

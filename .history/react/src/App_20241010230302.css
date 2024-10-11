@@ -1,0 +1,38 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
+  font-family: Helvetica, sans-serif;
+} 
+
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 100%;
+  min-width: 10rem;
+}
+
+#checkbox {
+  margin-right: 1rem;
+}
+
+#task-name {
+  margin: 0 10rem 0 1rem;
+  font-weight: bold;
+}
+
+.task-delete {
+  border: 1px solid black;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.task-delete:hover {
+  border: 1px solid pink;
+}
+
+
