@@ -38,7 +38,8 @@ function App() {
           {tasks.map((task) => (
             <Task 
               key={task.id} 
-              task={task}
+              name={task.name} 
+              completed={task.completed} 
               toggleComplete={() => toggleComplete(task.id)} 
               removeTask={() => removeTask(task.id)}
             />

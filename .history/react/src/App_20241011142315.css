@@ -1,5 +1,5 @@
 #root {
-  width: 60%;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -32,6 +32,7 @@
 .btn-save {
   background-color: pink;
   border-radius: 0;
+  border: 1px solid hotpink;
 }
 
 .btn-save:hover {

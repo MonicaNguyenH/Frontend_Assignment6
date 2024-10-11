@@ -1,0 +1,39 @@
+import { useState } from "react";
+
+export default function Task({ name, onToggle }) {
+  const [isChecked, setIsChecked] = useState(false);
+  const [visible, setVisible] = useState(true);
+
+  // Handle checkbox toggle and notify the parent
+  const toggleCheckbox = () => {
+    setIsChecked(!isChecked);
+    onToggle(!isChecked); // Inform the parent about the status
+  };
+
+  // Handle removing task
+  const removeTask = () => {
+    setVisible(false);
+  };
+
+  if (!visible) {
+    return null;
+  }
+
+  return (
+    <div className="task">
+      <label>
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={toggleCheckbox}
+        />
+      </label>
+      <p style={{ textDecoration: isChecked ? "line-through" : "none" }}>
+        {name}
+      </p>
+      <button className="task-delete" onClick={removeTask}>
+        Remove
+      </button>
+    </div>
+  );
+}

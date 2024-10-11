@@ -12,7 +12,7 @@ export default function Task({ task, toggleComplete, removeTask }) {
             onChange={toggleComplete}
           />
         </label>
-        <span className="task-name" style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>{task.name}</span>
+        <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>{task.name}</span>
         <button className="task-delete" onClick={removeTask}>Remove</button>
       </div>
     </>
