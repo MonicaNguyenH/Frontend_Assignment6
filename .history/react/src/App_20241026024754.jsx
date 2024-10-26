@@ -31,7 +31,7 @@ function App() {
 
   const filteredTask = tasks.filter(task => {
     if (filter === "completed") return task.completed;
-    if (filter === "pending") return !task.completed;
+    if (filter === "pending") return task.pending;
     return true; // show all tasks if return is true (all selected)
   });
 
@@ -49,14 +49,14 @@ function App() {
         <div>
           <TaskForm addTask={addTask} />
 
-          <div className="btn-filters">
+          <div>
             <button onClick={() => setFilter("all")}>All</button>
             <button onClick={() => setFilter("completed")}>Completed</button>
             <button onClick={() => setFilter("pending")}>Pending</button>
           </div>
 
           <h2 className="counting">
-            You have {tasks.filter(task => !task.completed).length} tasks remaining
+            You have {remainingTask} task{remainingTask !== 1 ? 's' : ''} remaining
           </h2>
           {filteredTask.map((task) => (
             <Task 
@@ -64,7 +64,6 @@ function App() {
               task={task}
               toggleComplete={() => toggleComplete(task.id)} 
               removeTask={() => removeTask(task.id)}
-              onToggle={() => toggleTaskCompletion(task.id)}
             />
           ))}
         </div>

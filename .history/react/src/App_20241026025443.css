@@ -85,20 +85,7 @@
   flex-direction: row;
   gap: 0.5em;
   margin: 1em 0;
-}
 
-.btn-filters button {
-  border: 1px solid grey;
-  border-radius: 10px;
-}
-
-.btn-filters button:hover {
-  background-color: black;
-  color: white;
-}
-
-.btn-filters button:focus {
   background-color: pink;
-  color: black;
 }
 

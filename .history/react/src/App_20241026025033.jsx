@@ -31,7 +31,7 @@ function App() {
 
   const filteredTask = tasks.filter(task => {
     if (filter === "completed") return task.completed;
-    if (filter === "pending") return !task.completed;
+    if (filter === "pending") return task.pending;
     return true; // show all tasks if return is true (all selected)
   });
 
@@ -49,7 +49,7 @@ function App() {
         <div>
           <TaskForm addTask={addTask} />
 
-          <div className="btn-filters">
+          <div>
             <button onClick={() => setFilter("all")}>All</button>
             <button onClick={() => setFilter("completed")}>Completed</button>
             <button onClick={() => setFilter("pending")}>Pending</button>
